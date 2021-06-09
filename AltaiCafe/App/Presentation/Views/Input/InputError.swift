@@ -14,7 +14,7 @@ struct InputError: View {
   init(_ message: String) {
     self.message = message
   }
-
+  
   var body: some View {
     Text(message)
       .foregroundColor(.red)

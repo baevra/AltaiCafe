@@ -28,12 +28,12 @@ final class SendAnalyticsUseCaseDefault: SendAnalyticsUseCase {
 final class SendAnalyticsUseCaseMock: SendAnalyticsUseCase {
   var executeRequestCompletionCallsCount = 0
   var executeRequestCompletionCalled: Bool {
-      return executeRequestCompletionCallsCount > 0
+    return executeRequestCompletionCallsCount > 0
   }
   var executeRequestCompletionReceivedArguments: String?
   var executeRequestCompletionReceivedInvocations: [String] = []
   var executeRequestCompletionClosure: ((String, @escaping (Result<Void, SendAnalyticsUseCaseError>) -> Void) -> Void)?
-
+  
   func execute(code: String) -> AnyPublisher<Void, SendAnalyticsUseCaseError> {
     executeRequestCompletionCallsCount += 1
     executeRequestCompletionReceivedArguments = code

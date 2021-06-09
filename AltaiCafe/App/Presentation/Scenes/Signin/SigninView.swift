@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SigninView: View {
   @ObservedObject var viewModel: ViewModel<SigninViewModel>
-
+  
   var body: some View {
     VStack {
       InputGroup {
@@ -22,7 +22,7 @@ struct SigninView: View {
               set: { viewModel.dispatch(action: .setEmail(value: $0)) }
             )
           )
-            .keyboardType(.emailAddress)
+          .keyboardType(.emailAddress)
         }
         if let error = viewModel.state.form.email.error {
           InputError(error)
@@ -66,13 +66,13 @@ struct SigninView: View {
           InputError(error)
         }
       }
-
+      
       Button("Создать") {
         viewModel.dispatch(action: .signin)
       }
       .disabled(viewModel.state.signin.isLoading || !viewModel.state.form.isValid)
       .padding(.top, 20)
-
+      
       if case .success = viewModel.state.signin {
         Text("Аккаунт успешно создан")
           .foregroundColor(.green)

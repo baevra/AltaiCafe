@@ -1,14 +1,14 @@
 //
-//  SigninViewBuilder.swift
+//  NewsArticleViewBuilder.swift
 //  AltaiCafe
 //
-//  Created by Roman Baev on 28.05.2021.
+//  Created by Roman Baev on 16.04.2021.
 //
 
 import Foundation
 import SwiftUI
 
-final class SigninViewBuilder {
+final class NewsArticleViewBuilder {
   let dependency: Dependency
   
   init(dependency: Dependency) {
@@ -17,13 +17,13 @@ final class SigninViewBuilder {
   
   func build() -> some View {
     let viewModel = dependency.viewModel
-    let view = SigninView(viewModel: viewModel)
+    let view = NewsArticleView(viewModel: viewModel)
     return view
   }
 }
 
-extension SigninViewBuilder {
+extension NewsArticleViewBuilder {
   struct Dependency {
-    let viewModel: ViewModel<SigninViewModel>
+    let viewModel: ViewModel<NewsArticleViewModel>
   }
 }
